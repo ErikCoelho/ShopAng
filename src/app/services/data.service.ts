@@ -30,4 +30,8 @@ export class DataService {
   public login(form: any) {
     return this.http.post(`${this.baseUrl}/v1/account/login`, form);
   }
+
+  public createAccount(form: any) {
+    return this.http.post(`${this.baseUrl}/v1/account/create`, form);
+  }
 }

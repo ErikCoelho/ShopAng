@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from 'src/app/data.service';
+import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,7 +10,7 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  public product: any;
+  public product!: Product;
   constructor(
     private service: DataService,
     private route: ActivatedRoute

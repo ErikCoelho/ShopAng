@@ -12,7 +12,8 @@
         <form class="mt-8 space-y-6" [formGroup]="postForm" *ngIf="!busy" (ngSubmit)="submit()" #formDir="ngForm">
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
-                    <label for="email-address" class="font-mono font-medium inline-block my-1">Email</label>
+                    <label for="email-address"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-black my-1">Email</label>
                     <input id="email-address" name="email" formControlName="email" type="email" autocomplete="email"
                         required
                         class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
@@ -22,7 +23,8 @@
                 </div>
 
                 <div>
-                    <label class="font-mono font-medium inline-block my-1" for="password">Senha</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-black my-1"
+                        for="password">Senha</label>
                     <input id="password" name="password" type="password" formControlName="password"
                         autocomplete="current-password" required
                         class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
