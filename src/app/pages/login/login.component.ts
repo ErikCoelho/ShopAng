@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 export class LoginComponent implements OnInit {
   public postForm!: FormGroup;
   public busy = false;
+  public infoWrong = false;
   constructor(
     private router: Router,
     private service: DataService,
@@ -42,11 +43,21 @@ export class LoginComponent implements OnInit {
     this.busy = true;
     this.service.login(this.postForm.value)
       .subscribe((data: any) => {
-        console.log(data.data);
-        localStorage.setItem('shop.token', data.data);
-        this.busy = false;
-        this.router.navigateByUrl("/");
+        this.login(data);
+
       });
+  }
+
+  login(data: any) {
+    this.busy = false;
+    if (data.success == false) {
+      this.infoWrong = true;
+      return
+    }
+    else {
+      localStorage.setItem('shop.token', data.data);
+      this.router.navigateByUrl("/");
+    }
   }
 
 }

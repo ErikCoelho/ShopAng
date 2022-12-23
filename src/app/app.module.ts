@@ -1,4 +1,5 @@
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import ptBr from '@angular/common/locales/pt';
@@ -19,6 +20,8 @@ import { MaskDirective } from './directives/mask.directive';
 import { AccountComponent } from './pages/account/account.component';
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
+import { InfoComponent } from './pages/info/info.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 registerLocaleData(ptBr);
 
@@ -33,9 +36,12 @@ registerLocaleData(ptBr);
     LoginComponent,
     SignupComponent,
     LoadingComponent,
-    AccountComponent
+    AccountComponent,
+    InfoComponent,
+    SidebarComponent
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

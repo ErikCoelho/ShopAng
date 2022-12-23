@@ -3,7 +3,7 @@
         <div>
             <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt="Your Company">
-            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Entre na sua conta</h2>
+            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Faça login</h2>
         </div>
 
         <app-loading *ngIf="busy"></app-loading>
@@ -20,6 +20,9 @@
                 </div>
                 <div class="text-red-600" *ngIf="email.invalid && formDir.submitted">
                     <p *ngIf="email.errors?.['required']">O email é obrigatório</p>
+                    <div class="text-red-600" *ngIf="infoWrong">
+                        <p>Usuário ou senha inválidos</p>
+                    </div>
                 </div>
 
                 <div>
@@ -31,6 +34,9 @@
                 </div>
                 <div class="text-red-600" *ngIf="password.invalid && formDir.submitted">
                     <p *ngIf="password.errors?.['required']">A senha é obrigatória</p>
+                </div>
+                <div class="text-red-600" *ngIf="infoWrong">
+                    <p>Usuário ou senha inválidos</p>
                 </div>
             </div>
 
@@ -49,7 +55,7 @@
 
             <div>
                 <button type="submit"
-                    class="group relative flex w-full justify-center cursor-pointer rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none ">
+                    class="group relative flex w-full justify-center cursor-pointer rounded-md border border-transparent dark:bg-gray-800 py-2 px-4 text-sm font-medium text-white hover:bg-gray-700 focus:outline-none ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                     </span>
                     Entrar
@@ -58,7 +64,7 @@
 
             <div>
                 <a [routerLink]="['/signup']"
-                    class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none ">
+                    class="group relative flex w-full justify-center rounded-md border border-transparent dark:bg-gray-800 py-2 px-4 text-sm font-medium text-white hover:bg-gray-700 focus:outline-none ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                     </span>
                     Criar conta

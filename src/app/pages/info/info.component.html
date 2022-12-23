@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="mx-auto flex py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="w-50 flex ml-8">
+        <form *ngIf="customer">
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="mb-6 w-full group">
+                    <label for="floating_first_name"
+                        class="text-sm font-medium text-gray-900 dark:text-black ">Nome</label>
+                    <input type="text"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600  focus:outline-none focus:ring-0 "
+                        placeholder="{{customer.name.firstName}}" disabled />
+                </div>
+                <div class="mb-6 w-full group">
+                    <label for="floating_last_name"
+                        class="text-sm font-medium text-gray-900 dark:text-black ">Sobrenome</label>
+                    <input type="text"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600  focus:outline-none focus:ring-0 "
+                        placeholder=" {{customer.name.lastName}}" disabled />
+                </div>
+            </div>
+            <div class="mb-6 w-full group">
+                <label for="floating_email" class="text-sm font-medium text-gray-900 dark:text-black ">Email</label>
+                <input type="email"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600  focus:outline-none focus:ring-0 "
+                    placeholder=" {{customer.email.address}}" disabled />
+            </div>
+
+            <div class="mb-6 w-full group">
+                <label for="floating_cpf" class=" text-sm font-medium text-gray-900 dark:text-black ">CPF</label>
+                <input type="email"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600  focus:outline-none focus:ring-0 "
+                    placeholder=" {{customer.document.number}}" disabled />
+            </div>
+            <button type="submit"
+                class="text-white dark:bg-gray-800 hover:bg-gray-700 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Editar
+                Informações</button>
+        </form>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

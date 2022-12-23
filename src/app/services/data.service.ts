@@ -34,4 +34,11 @@ export class DataService {
   public createAccount(form: any) {
     return this.http.post(`${this.baseUrl}/v1/account/create`, form);
   }
+
+  public getInfoCustomer() {
+    return this.http.get(`${this.baseUrl}/v1/account/info`, { headers: this.composeHeaders() });
+  }
+
+  // Order Controller
+
 }
