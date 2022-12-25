@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
         Validators.required,
         CustomValidator.isCpf()
       ])),
-      password: new FormControl('', Validators.compose([
+      passwordHash: new FormControl('', Validators.compose([
         Validators.minLength(3),
         Validators.required
       ])),
@@ -61,13 +61,15 @@ export class SignupComponent implements OnInit {
     return this.createForm.get('document')!;
   }
 
-  get password() {
-    return this.createForm.get('password')!;
+  get passwordHash() {
+    return this.createForm.get('passwordHash')!;
   }
 
   submit() {
     this.busy = true;
     if (this.createForm.invalid) {
+      console.log(this.email.errors);
+      this.busy = false;
       return;
     }
     this.service.createAccount(this.createForm.value)

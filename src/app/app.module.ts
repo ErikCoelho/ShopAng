@@ -22,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { InfoComponent } from './pages/info/info.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 registerLocaleData(ptBr);
 
@@ -38,7 +40,9 @@ registerLocaleData(ptBr);
     LoadingComponent,
     AccountComponent,
     InfoComponent,
-    SidebarComponent
+    SidebarComponent,
+    CartPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

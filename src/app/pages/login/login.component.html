@@ -20,6 +20,7 @@
                 </div>
                 <div class="text-red-600" *ngIf="email.invalid && formDir.submitted">
                     <p *ngIf="email.errors?.['required']">O email é obrigatório</p>
+                    <p *ngIf="email.errors?.['InvalidEmail']">Email inválido</p>
                     <div class="text-red-600" *ngIf="infoWrong">
                         <p>Usuário ou senha inválidos</p>
                     </div>

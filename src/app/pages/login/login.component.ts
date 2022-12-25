@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { CustomValidator } from 'src/app/validators/custom.validator';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', Validators.compose([
+        Validators.minLength(3),
+        Validators.required,
+        CustomValidator.EmailValidator
+      ])),
       password: new FormControl('', Validators.compose([
         Validators.minLength(3),
         Validators.required

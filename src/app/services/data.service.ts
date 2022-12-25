@@ -13,9 +13,13 @@ export class DataService {
 
   public composeHeaders() {
     const token = localStorage.getItem('shop.token')!;
-    const headers = new HttpHeaders().set('Authorization', `bearer ${token}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
     return headers;
   }
+
 
   // Product Controller 
   public getProducts() {
@@ -23,7 +27,7 @@ export class DataService {
   }
 
   public getProductById(id: string) {
-    return this.http.get(`${this.baseUrl}/v1/products/${id}`);
+    return this.http.get(`${this.baseUrl}/v1/product/${id}`);
   }
 
   // Customer Controller

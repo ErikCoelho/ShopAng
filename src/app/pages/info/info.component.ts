@@ -17,33 +17,9 @@ export class InfoComponent implements OnInit {
 
   ngOnInit() {
     this.service.getInfoCustomer().subscribe((data: any) => {
-      console.log(data);
       this.customer = data;
 
     })
 
   }
-
-  get fistName() {
-    return this.form.get('fistName')!;
-  }
-
-  get lastName() {
-    return this.form.get('lastName')!;
-  }
-
-  get document() {
-    return this.form.get('cpf')!;
-  }
-
-  get email() {
-    return this.form.get('email')!;
-  }
-
-
-  // infos(data) {
-  //   this.form.disabled
-  //   this.email.value = 
-  // }
-
 }

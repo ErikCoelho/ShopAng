@@ -39,6 +39,7 @@
                 required>
             <div class="text-red-600" *ngIf="document.invalid && formDir.submitted">
                 <p *ngIf="document.errors?.['required']">O CPF é obrigatório</p>
+                <p *ngIf="document.errors?.['cpfNotValid']">CPF inválido</p>
             </div>
         </div>
 
@@ -49,15 +50,16 @@
                 required>
             <div class="text-red-600" *ngIf="email.invalid && formDir.submitted">
                 <p *ngIf="email.errors?.['required']">O email é obrigatório</p>
+                <p *ngIf="email.errors?.['InvalidEmail']">Email inválido</p>
             </div>
         </div>
         <div class="mb-6">
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Senha</label>
-            <input type="password" formControlName="password"
+            <input type="password" formControlName="passwordHash"
                 class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 required>
-            <div class="text-red-600" *ngIf="password.invalid && formDir.submitted">
-                <p *ngIf="password.errors?.['required']">A senha é obrigatória</p>
+            <div class="text-red-600" *ngIf="passwordHash.invalid && formDir.submitted">
+                <p *ngIf="passwordHash.errors?.['required']">A senha é obrigatória</p>
             </div>
         </div>
         <div class="flex items-start mb-6">

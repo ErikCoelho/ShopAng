@@ -1,6 +1,38 @@
 <app-navbar></app-navbar>
+
+<div class="absolute z-10 right-1.5" *ngIf="added">
+    <div id="toast-success"
+        class="flex items-center p-4 my-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+            class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">Produto adicionado.</div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            data-dismiss-target="#toast-success" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
 <div class="min-w-screen min-h-screen flex items-center p-5 lg:p-10 overflow-hidden relative">
     <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+
+
         <div class="md:flex items-center -mx-10" *ngIf="product">
             <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
                 <div class="relative">
@@ -10,18 +42,19 @@
             <div class="w-full md:w-1/2 px-10">
                 <div class="mb-10">
                     <h1 class="font-bold uppercase text-2xl mb-5">{{product.title}}</h1>
-                    <p class="text-sm">{{product.description}}</p>
                 </div>
                 <div>
                     <div class="inline-block align-bottom mr-5">
                         <span class="font-bold text-3xl leading-none align-baseline">{{product.price | currency}}</span>
                     </div>
                     <div class="inline-block align-bottom">
-                        <button
-                            class="dark:bg-gray-800 opacity-75 hover:opacity-100 text-white hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i
-                                class="mdi mdi-cart -ml-2 mr-2"></i> Comprar</button>
+                        <button (click)="addToCart()"
+                            class="dark:bg-gray-800 opacity-75 hover:opacity-100 text-white  rounded-full px-10 py-2 font-semibold"><i
+                                class="mdi mdi-cart -ml-2 mr-2"></i> Adicionar ao carrinho</button>
                     </div>
                 </div>
+                <p class="text-sm">{{product.description}}</p>
+
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { Product } from 'src/app/models/product.model';
+import { CartUtil } from 'src/app/utils/cart.util';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +11,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductComponent implements OnInit {
   public product!: Product;
+  public added = false;
   constructor(
     private service: DataService,
     private route: ActivatedRoute
@@ -21,6 +22,26 @@ export class ProductComponent implements OnInit {
     this.service.getProductById(id).subscribe((data: any) => {
       this.product = data;
     });
+  }
+
+  addToCart() {
+    CartUtil.add(
+      this.product.id,
+      this.product.title,
+      1,
+      this.product.price,
+      this.product.image
+    )
+    this.notification();
+  }
+
+
+  notification() {
+    this.added = true;
+
+    setTimeout(() => {
+      this.added = false;
+    }, 1100);
   }
 
 }
