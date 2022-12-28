@@ -9,11 +9,16 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ProductsManagerComponent implements OnInit {
   products!: Product[];
+  inactiveProducts!: Product[];
   constructor(private service: DataService) { }
 
   ngOnInit() {
-    this.service.getProducts().subscribe((data: any) => {
+    this.service.getInactiveProducts().subscribe((data: any) => {
       this.products = data;
+    })
+
+    this.service.getProducts().subscribe((data: any) => {
+      this.inactiveProducts = data;
     })
   }
 

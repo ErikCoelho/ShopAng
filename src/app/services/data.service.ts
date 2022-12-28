@@ -26,12 +26,20 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/v1/products`);
   }
 
+  public getInactiveProducts() {
+    return this.http.get(`${this.baseUrl}/v1/products/inactive`, { headers: this.composeHeaders() });
+  }
+
   public getProductById(id: string) {
     return this.http.get(`${this.baseUrl}/v1/product/${id}`);
   }
 
   public postProduct(form: any) {
     return this.http.post(`${this.baseUrl}/v1/products`, form, { headers: this.composeHeaders() });
+  }
+
+  public putProduct(form: any, id: string) {
+    return this.http.put(`${this.baseUrl}/v1/products/${id}`, form, { headers: this.composeHeaders() });
   }
 
   // Customer Controller

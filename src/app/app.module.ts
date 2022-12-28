@@ -30,7 +30,8 @@ import { NavbarAdminComponent } from './components/Admin/navbar-admin/navbar-adm
 import { SideBarAdminComponent } from './components/Admin/side-bar-admin/side-bar-admin.component';
 import { ProductsManagerComponent } from './pages/Admin/products-manager/products-manager.component';
 import { AddProductComponent } from './pages/Admin/add-product/add-product.component';
-import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationComponent } from './components/shared/notification/notification.component';
+import { EditProductComponent } from './pages/Admin/edit-product/edit-product.component';
 
 registerLocaleData(ptBr);
 
@@ -55,7 +56,8 @@ registerLocaleData(ptBr);
     SideBarAdminComponent,
     ProductsManagerComponent,
     AddProductComponent,
-    NotificationComponent
+    NotificationComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

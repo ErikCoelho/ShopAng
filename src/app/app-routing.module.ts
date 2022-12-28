@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { HasRoleGuard } from './services/has-role.guard';
 import { ProductsManagerComponent } from './pages/Admin/products-manager/products-manager.component';
 import { AddProductComponent } from './pages/Admin/add-product/add-product.component';
+import { EditProductComponent } from './pages/Admin/edit-product/edit-product.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'manager', component: ManagerComponent },
   { path: 'products/manager', component: ProductsManagerComponent },
   { path: 'products/create', component: AddProductComponent },
+  { path: 'products/edit/:id', component: EditProductComponent },
   // {
   //   path: 'manager', component: ManagerComponent
   //   // , canActivate: [AuthService, HasRoleGuard], data: {

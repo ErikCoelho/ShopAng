@@ -1,0 +1,68 @@
+<app-navbar-admin></app-navbar-admin>
+
+<app-notification *ngIf="added" [message]="message"></app-notification>
+
+<div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <app-loading *ngIf="busy"></app-loading>
+
+    <form class="w-1/2 py-12 px-4 sm:px-6 lg:px-8" [formGroup]="Form" *ngIf="!busy" (ngSubmit)="submit()"
+        #formDir="ngForm">
+        <div *ngIf="productData">
+
+            <h2 class="my-8 text-center text-3xl font-bold tracking-tight text-gray-900">Adicionar produto</h2>
+        </div>
+        <div class="mb-6">
+            <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Imagem
+                url</label>
+            <input type="text" formControlName="image"
+                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required>
+            <div class="text-red-600" *ngIf="image.invalid && formDir.submitted">
+                <p *ngIf="image.errors?.['required']">A imagem é obrigatória</p>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Título</label>
+            <input type="text" formControlName="title"
+                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required>
+            <div class="text-red-600" *ngIf="title.invalid && formDir.submitted">
+                <p *ngIf="title.errors?.['required']">O título é obrigatório</p>
+            </div>
+        </div>
+
+
+        <div class="mb-6">
+            <label for="description"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Descrição</label>
+            <textarea type="text" formControlName="description"
+                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required></textarea>
+            <div class="text-red-600" *ngIf="description.invalid && formDir.submitted">
+                <p *ngIf="description.errors?.['required']">A descrição é obrigatória</p>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Preço</label>
+            <input type="number" formControlName="price"
+                class="relative block w-full appearance-none rounded border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required>
+            <div class="text-red-600" *ngIf="price.invalid && formDir.submitted">
+                <p *ngIf="price.errors?.['required']">O preço é obrigatório</p>
+            </div>
+        </div>
+        <div class="mb-6">
+            <label for="active" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Ativo</label>
+            <select name="active" formControlName="active">
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
+
+        </div>
+
+        <button type="submit"
+            class="text-white dark:bg-gray-800 hover:bg-gray-700  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2.5 text-center ">Alterar</button>
+    </form>
+</div>
