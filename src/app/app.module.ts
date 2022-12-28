@@ -17,13 +17,20 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { MaskDirective } from './directives/mask.directive';
-import { AccountComponent } from './pages/account/account.component';
+import { AccountComponent } from './pages/AccountData/account/account.component';
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
-import { InfoComponent } from './pages/info/info.component';
+import { InfoComponent } from './pages/AccountData/info/info.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ManagerComponent } from './pages/Admin/manager/manager.component';
+import { HasRoleGuard } from './services/has-role.guard';
+import { NavbarAdminComponent } from './components/Admin/navbar-admin/navbar-admin.component';
+import { SideBarAdminComponent } from './components/Admin/side-bar-admin/side-bar-admin.component';
+import { ProductsManagerComponent } from './pages/Admin/products-manager/products-manager.component';
+import { AddProductComponent } from './pages/Admin/add-product/add-product.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 registerLocaleData(ptBr);
 
@@ -42,7 +49,13 @@ registerLocaleData(ptBr);
     InfoComponent,
     SidebarComponent,
     CartPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ManagerComponent,
+    NavbarAdminComponent,
+    SideBarAdminComponent,
+    ProductsManagerComponent,
+    AddProductComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +68,8 @@ registerLocaleData(ptBr);
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
     DataService,
-    AuthService
+    AuthService,
+    HasRoleGuard
   ],
   bootstrap: [AppComponent]
 })

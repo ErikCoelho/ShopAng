@@ -11,7 +11,9 @@ import { CartUtil } from 'src/app/utils/cart.util';
 })
 export class ProductComponent implements OnInit {
   public product!: Product;
+  public message!: string;
   public added = false;
+
   constructor(
     private service: DataService,
     private route: ActivatedRoute
@@ -35,13 +37,12 @@ export class ProductComponent implements OnInit {
     this.notification();
   }
 
-
   notification() {
     this.added = true;
-
+    this.message = "Producto Adicionado";
     setTimeout(() => {
       this.added = false;
-    }, 1100);
+    }, 1400);
   }
 
 }

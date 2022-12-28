@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
       document: new FormControl('', Validators.compose([
         Validators.minLength(14),
         Validators.required,
-        CustomValidator.isCpf()
+        CustomValidator.isCpf(),
       ])),
       passwordHash: new FormControl('', Validators.compose([
         Validators.minLength(3),
@@ -68,10 +68,10 @@ export class SignupComponent implements OnInit {
   submit() {
     this.busy = true;
     if (this.createForm.invalid) {
-      console.log(this.email.errors);
       this.busy = false;
       return;
     }
+
     this.service.createAccount(this.createForm.value)
       .subscribe((data: any) => {
         this.busy = false;

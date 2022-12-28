@@ -8,12 +8,12 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  public products$!: Product[];
+  public products!: Product[];
   constructor(private service: DataService) { }
 
   ngOnInit(): void {
     this.service.getProducts().subscribe((data: any) => {
-      this.products$ = data;
+      this.products = data;
     })
   }
 

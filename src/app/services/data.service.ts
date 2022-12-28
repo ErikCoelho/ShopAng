@@ -30,6 +30,10 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/v1/product/${id}`);
   }
 
+  public postProduct(form: any) {
+    return this.http.post(`${this.baseUrl}/v1/products`, form, { headers: this.composeHeaders() });
+  }
+
   // Customer Controller
   public login(form: any) {
     return this.http.post(`${this.baseUrl}/v1/account/login`, form);

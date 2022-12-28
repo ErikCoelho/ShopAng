@@ -1,0 +1,87 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="mx-auto flex py-16 px-4 sm:py-14 sm:px-6 lg:max-w-7xl ">
+
+    <app-side-bar-admin></app-side-bar-admin>
+
+
+    <div class="container mx-auto">
+        <div class="flex drop-shadow-lg ml-10">
+            <div class="w-3/4 bg-white px-10 py-10">
+                <button [routerLink]="['/products/create']"
+                    class="rounded-md border border-transparent dark:bg-gray-800 py-2 px-4 text-sm font-medium text-white hover:bg-gray-700 focus:outline-none ">Adicionar
+                    Produto</button>
+                <div class="flex justify-between mt-5 border-b pb-8">
+                    <h1 class="font-semibold text-2xl">Produtos</h1>
+                    <!-- <h2 class="font-semibold text-2xl" *ngIf="productsCount">{{ productsCount }}</h2> -->
+                    <h2 class="font-semibold text-2xl"> 99</h2>
+                </div>
+                <div class="flex mt-10 mb-5">
+                    <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Detalhes</h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Ativo
+                    </h3>
+                    <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Preço</h3>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let product of products">
+                    <div class="flex w-2/5"> <!-- product -->
+                        <div class="w-28">
+                            <img class="h-20" src="{{ product.image }}" alt="{{ product.title }}">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm">{{ product.title }}</span>
+                            <a class="font-semibold hover:text-red-500 cursor-pointer text-gray-500 text-xs">Remover</a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-1/5">
+
+                        <input class="mx-2 border text-center w-8" type="text" value="{{ product.active }}" disabled>
+
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm">{{ product.price | currency}}</span>
+
+                    <div class="flex justify-center w-1/5">
+
+                        <button>Editar</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- <div class=" flex shadow-md ml-8">
+        <div class="w-3/4 bg-white px-10 py-10">
+            <div class="flex  mb-5">
+                <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Detalhes</h3>
+                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Ativo
+                </h3>
+                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Preço</h3>
+            </div>
+            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let product of products">
+                <div class="flex w-2/5"> product -->
+    <!-- <div class="w-28">
+                        <img class="h-20" src="{{ product.image}}">
+                    </div>
+                    <div class="flex flex-col justify-between ml-4 flex-grow">
+                        <span class="font-bold text-sm">{{ product.title }}</span>
+                        <a class="font-semibold hover:text-red-500 cursor-pointer text-gray-500 text-xs">Remover</a>
+                    </div>
+                </div>
+                <div class="flex justify-center w-1/5">
+
+                    <input class="mx-2 border text-center w-8" type="text" value="{{ product.active}}" disabled>
+
+                </div>
+                <span class="text-center w-1/5 font-semibold text-sm">{{product.price | currency}} </span>
+            </div>
+
+        </div>
+
+    </div> -->
+
+</div>

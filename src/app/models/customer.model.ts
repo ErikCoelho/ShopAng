@@ -4,4 +4,5 @@ export class Customer {
     public lastName!: string;
     public document!: string;
     public email!: string;
+    public role!: string[];
 }

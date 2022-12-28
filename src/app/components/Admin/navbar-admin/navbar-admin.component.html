@@ -1,0 +1,29 @@
+<div class="bg-white">
+
+    <header class="relative bg-white">
+
+        <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="border-b border-gray-200">
+                <div class="flex h-16 items-center">
+                    <!-- Logo -->
+                    <div class="ml-4 flex lg:ml-0">
+                        <a [routerLink]="['/manager']">
+                            <h1
+                                class="pr-8 border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out">
+                                NewShop - ADMIN</h1>
+                        </a>
+                    </div>
+
+                    <div class="ml-auto flex items-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <h1 class="px-1" *ngIf="adminData">Olá, {{ adminData.name.firstName }}</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>

@@ -18,7 +18,6 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
     this.service.getInfoCustomer().subscribe((data: any) => {
       this.customer = data;
-
     })
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { CustomValidator } from 'src/app/validators/custom.validator';
 
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private service: DataService,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
       return
     }
     else {
-      localStorage.setItem('shop.token', data.data);
+      this.auth.login(data);
       this.router.navigateByUrl("/");
     }
   }
