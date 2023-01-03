@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-account',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-
-  constructor() { }
-
+  userIsAdmin = false;
+  constructor(private authService: AuthService) { }
   ngOnInit(): void {
+    this.userVerify();
   }
 
+  userVerify() {
+    if (this.authService.user?.role.includes("admin")) {
+      this.userIsAdmin = true;
+    }
+  }
 }

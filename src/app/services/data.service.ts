@@ -31,7 +31,7 @@ export class DataService {
   }
 
   public getProductById(id: string) {
-    return this.http.get(`${this.baseUrl}/v1/product/${id}`);
+    return this.http.get(`${this.baseUrl}/v1/products/${id}`);
   }
 
   public postProduct(form: any) {
@@ -40,6 +40,10 @@ export class DataService {
 
   public putProduct(form: any, id: string) {
     return this.http.put(`${this.baseUrl}/v1/products/${id}`, form, { headers: this.composeHeaders() });
+  }
+
+  public deleteProduct(id: string) {
+    return this.http.delete(`${this.baseUrl}/v1/products/${id}`, { headers: this.composeHeaders() });
   }
 
   // Customer Controller
@@ -56,5 +60,11 @@ export class DataService {
   }
 
   // Order Controller
+  public createOrder(items: any) {
+    return this.http.post(`${this.baseUrl}/v1/orders`, items, { headers: this.composeHeaders() });
+  }
 
+  public getOrders() {
+    return this.http.get(`${this.baseUrl}/v1/orders`, { headers: this.composeHeaders() });
+  }
 }

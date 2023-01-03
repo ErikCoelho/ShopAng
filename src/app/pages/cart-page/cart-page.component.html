@@ -16,10 +16,10 @@
             <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let item of cart?.items">
                 <div class="flex w-2/5"> <!-- product -->
                     <div class="w-28">
-                        <img class="h-20" src="{{ item.image }}" alt="{{ item.product }}">
+                        <img class="h-20" src="{{ item.image }}" alt="{{ item.productTitle }}">
                     </div>
                     <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm">{{ item.product }}</span>
+                        <span class="font-bold text-sm">{{ item.productTitle }}</span>
                         <a (click)="remove(item)"
                             class="font-semibold hover:text-red-500 cursor-pointer text-gray-500 text-xs">Remover</a>
                     </div>
@@ -55,7 +55,7 @@
                     <span>Total</span>
                     <span>{{ total() | currency }}</span>
                 </div>
-                <button
+                <button [routerLink]="['/checkout']"
                     class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Finalizar
                     compra</button>
             </div>

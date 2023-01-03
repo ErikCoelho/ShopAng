@@ -50,7 +50,7 @@ export class EditProductComponent implements OnInit {
         price: this.productData.price,
         active: this.productData.active,
       });
-    }, 250);
+    }, 300);
 
   }
 

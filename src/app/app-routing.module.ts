@@ -14,30 +14,49 @@ import { HasRoleGuard } from './services/has-role.guard';
 import { ProductsManagerComponent } from './pages/Admin/products-manager/products-manager.component';
 import { AddProductComponent } from './pages/Admin/add-product/add-product.component';
 import { EditProductComponent } from './pages/Admin/edit-product/edit-product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { PurchasedComponent } from './pages/purchased/purchased.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { OrdersComponent } from './pages/AccountData/orders/orders.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: 'product/:id', component: ProductComponent },
+
   { path: 'cart', component: CartPageComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthService] },
+  { path: "purchased", component: PurchasedComponent, canActivate: [AuthService] },
 
   { path: 'account', component: AccountComponent, canActivate: [AuthService] },
   { path: 'account/info', component: InfoComponent, canActivate: [AuthService] },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthService] },
 
-  { path: 'manager', component: ManagerComponent },
-  { path: 'products/manager', component: ProductsManagerComponent },
-  { path: 'products/create', component: AddProductComponent },
-  { path: 'products/edit/:id', component: EditProductComponent },
-  // {
-  //   path: 'manager', component: ManagerComponent
-  //   // , canActivate: [AuthService, HasRoleGuard], data: {
-  //   //   role: 'admin'
-  //   // }
-  // },
+  {
+    path: 'manager', component: ManagerComponent, canActivate: [AuthService, HasRoleGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'products/manager', component: ProductsManagerComponent, canActivate: [AuthService, HasRoleGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'products/create', component: AddProductComponent, canActivate: [AuthService, HasRoleGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'products/edit/:id', component: EditProductComponent, canActivate: [AuthService, HasRoleGuard], data: {
+      role: 'admin'
+    }
+  },
 
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 
-  { path: '**', component: NotFoundComponent }
+  { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: '**', component: NotFoundComponent },
 
 ];
 

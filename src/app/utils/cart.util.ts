@@ -11,10 +11,10 @@ export class CartUtil {
         return JSON.parse(data);
     }
 
-    public static add(id: string, product: string, quantity: number, price: number, image: string) {
+    public static add(product: string, productTitle: string, quantity: number, price: number, image: string) {
         let cart = this.get();
 
-        const item = new CartItem(id, product, quantity, price, image);
+        const item = new CartItem(product, productTitle, quantity, price, image);
 
         cart.items.push(item);
 

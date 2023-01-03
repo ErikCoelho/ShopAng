@@ -32,6 +32,10 @@ import { ProductsManagerComponent } from './pages/Admin/products-manager/product
 import { AddProductComponent } from './pages/Admin/add-product/add-product.component';
 import { NotificationComponent } from './components/shared/notification/notification.component';
 import { EditProductComponent } from './pages/Admin/edit-product/edit-product.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { PurchasedComponent } from './pages/purchased/purchased.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { OrdersComponent } from './pages/AccountData/orders/orders.component';
 
 registerLocaleData(ptBr);
 
@@ -57,7 +61,11 @@ registerLocaleData(ptBr);
     ProductsManagerComponent,
     AddProductComponent,
     NotificationComponent,
-    EditProductComponent
+    EditProductComponent,
+    CheckoutComponent,
+    PurchasedComponent,
+    UnauthorizedComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

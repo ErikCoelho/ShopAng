@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<div class="pb-5 mt-5 px-4 md:px-6 2xl:px-0 flex justify-center items-center xl:mx-auto xl:container">
+    <div class="flex flex-col justify-start items-start w-full space-y-9">
+        <div class="flex justify-start flex-col items-start space-y-2">
+            <p class="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9 text-black ">
+                Checkout</p>
+        </div>
+
+        <div
+            class="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
+            <div
+                class="xl:w-3/5 flex flex-col sm:flex-row xl:flex-col justify-center items-center  py-7 sm:py-0 xl:py-10 px-10 xl:w-full">
+                <div class="flex flex-col justify-start items-start w-full space-y-4"
+                    *ngFor="let product of cart?.items">
+
+                    <p class="text-xl mt-3 md:text-xl leading-normal text-black ">{{ product.productTitle }}
+                        {{product.quantity}}x
+                        | {{product.price | currency}}</p>
+                </div>
+            </div>
+
+            <div class="p-8 flex flex-col lg:w-full xl:w-3/5">
+
+                <div class="flex flex-row justify-center items-center mt-6">
+                    <hr class="border w-full" />
+                    <p class="flex flex-shrink-0 px-4 text-base leading-4 text-black">Pague com
+                        cartão</p>
+                    <hr class="border w-full" />
+                </div>
+
+                <label class="mt-8 text-base leading-4 text-black">Dados do cartão</label>
+                <div class="mt-2 flex-col">
+                    <div>
+                        <input
+                            class="border rounded-tl rounded-tr border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600"
+                            type="email" name="" id="" placeholder="0000 1234 6549 15151" />
+                    </div>
+                    <div class="flex-row flex">
+                        <input
+                            class="border rounded-bl border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600"
+                            type="email" name="" id="" placeholder="MM/YY" />
+                        <input
+                            class="border rounded-br border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600"
+                            type="email" name="" id="" placeholder="CVC" />
+                    </div>
+                </div>
+
+                <label class="mt-8 text-base leading-4 text-gray-800 dark:text-gray-50">Nome no cartão</label>
+                <div class="mt-2 flex-col">
+                    <div>
+                        <input
+                            class="border rounded border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600"
+                            type="email" name="" id="" placeholder="Nome no cartão" />
+                    </div>
+                </div>
+
+                <button (click)="createOrder()"
+                    class="mt-8 border border-transparent text-black bg-green-600 flex justify-center items-center py-4 rounded w-full">
+                    <div>
+                        <p class="text-base leading-4">Pagar</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

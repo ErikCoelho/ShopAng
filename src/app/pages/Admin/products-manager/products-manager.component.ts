@@ -13,6 +13,10 @@ export class ProductsManagerComponent implements OnInit {
   constructor(private service: DataService) { }
 
   ngOnInit() {
+    this.getproducts();
+  }
+
+  getproducts() {
     this.service.getInactiveProducts().subscribe((data: any) => {
       this.products = data;
     })
@@ -21,5 +25,12 @@ export class ProductsManagerComponent implements OnInit {
       this.inactiveProducts = data;
     })
   }
+
+  removeProduct(id: string) {
+    this.service.deleteProduct(id).subscribe((data: any) => {
+      this.getproducts();
+    });
+  }
+
 
 }

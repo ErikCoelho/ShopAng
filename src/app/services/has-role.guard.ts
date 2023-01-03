@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -7,11 +7,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class HasRoleGuard implements CanActivate {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router,) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
@@ -20,9 +20,7 @@ export class HasRoleGuard implements CanActivate {
     const isAuthorized = this.authService.user?.role.includes(route.data['role']);
 
     if (!isAuthorized) {
-      // redirect
-      // display a message
-      window.alert('you are not authorized');
+      this.router.navigateByUrl("/unauthorized");
     }
 
     return isAuthorized || false;
