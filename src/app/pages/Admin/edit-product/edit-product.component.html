@@ -9,7 +9,7 @@
         #formDir="ngForm">
         <div *ngIf="productData">
 
-            <h2 class="my-8 text-center text-3xl font-bold tracking-tight text-gray-900">Adicionar produto</h2>
+            <h2 class="my-8 text-center text-3xl font-bold tracking-tight text-gray-900">Editar produto</h2>
         </div>
         <div class="mb-6">
             <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Imagem
@@ -56,13 +56,15 @@
         <div class="mb-6">
             <label for="active" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Ativo</label>
             <select name="active" formControlName="active">
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
+                <option value="active">Sim</option>
+                <option value="inactive">Não</option>
             </select>
 
         </div>
 
         <button type="submit"
-            class="text-white dark:bg-gray-800 hover:bg-gray-700  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2.5 text-center ">Alterar</button>
+            class="text-white mr-3 dark:bg-gray-800 hover:bg-gray-700  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2.5 text-center ">Alterar</button>
+        <button [routerLink]="['/products/manager']"
+            class="text-white dark:bg-red-600 hover:bg-red-500  focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2.5 text-center ">Cancelar</button>
     </form>
 </div>

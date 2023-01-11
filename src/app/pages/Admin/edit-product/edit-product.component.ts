@@ -84,7 +84,6 @@ export class EditProductComponent implements OnInit {
 
   submit() {
     this.busy = true;
-    console.log(this.Form.value);
     if (this.Form.invalid) {
       this.busy = false;
       return;

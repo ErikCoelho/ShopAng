@@ -14,6 +14,7 @@ import { CartPageComponent } from '../cart-page/cart-page.component';
 export class CheckoutComponent implements OnInit {
   cart: Cart = new Cart();
   items: any;
+  deliveryFee = 10;
 
   constructor(private router: Router,
     private service: DataService) { }
@@ -31,6 +32,14 @@ export class CheckoutComponent implements OnInit {
       this.router.navigateByUrl("/purchased");
       this.clear();
     });
+  }
+
+  public total() {
+    let total = 0;
+    this.cart.items.forEach((item) => {
+      total += (item.price * item.quantity);
+    });
+    return total + this.deliveryFee;
   }
 
   public clear() {

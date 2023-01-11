@@ -36,6 +36,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PurchasedComponent } from './pages/purchased/purchased.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { OrdersComponent } from './pages/AccountData/orders/orders.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 registerLocaleData(ptBr);
 
@@ -65,7 +66,8 @@ registerLocaleData(ptBr);
     CheckoutComponent,
     PurchasedComponent,
     UnauthorizedComponent,
-    OrdersComponent
+    OrdersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
